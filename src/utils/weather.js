@@ -8,13 +8,17 @@ const forecast=(longitude,latitude,callback)=>{
     else if(body.error)
         callback('Unable to find location .Try another location',undefined);
         else
-        {    const {temperature,precipProbability} =body.currently
+        {    const {temperature,precipProbability,windSpeed,ozone} =body.currently
 
              callback(undefined,{
             
             temperature:temperature,
             rain:precipProbability,
-            place:body.timezone
+            place:body.timezone,
+            windSpeed:windSpeed,
+            ozone
+
+
         })
         }
         
